@@ -24,6 +24,21 @@ class truckController {
   }
 
 
+  async showTrucks(request, response) {
+    try{
+      const userProfile = await User.findById(request.user.id);
+      if(!userProfile) {
+        return response.status(400).json({message: 'Bad request'});
+      }
+
+
+      return response.status(200).json({message: 'Truck created successfully'});
+    }
+    catch (e) {
+      response.status(500).json({message: 'Internal server error'});
+    }
+  }
+
 }
 
 

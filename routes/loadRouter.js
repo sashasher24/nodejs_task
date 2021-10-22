@@ -2,11 +2,11 @@ const Router = require('express');
 const router = new Router();
 // const {check} = require('express-validator');
 
-const truckController = require('../controllers/truckController');
-const driverMiddleware = require('../middleware/driverMiddleware');
+const loadController = require('../controllers/loadController');
+const shipperMiddleware = require('../middleware/shipperMiddleware');
 
-router.post('/', driverMiddleware, truckController.addTruck);
-router.get('/', driverMiddleware, truckController.showTrucks)
+router.post('/', shipperMiddleware, loadController.addLoad);
+// router.get('/', shipperMiddleware, loadController)
 // router.get('/;id', truckController)
 // router.put('/:id', truckController)
 // router.delete('/:id', truckController)
