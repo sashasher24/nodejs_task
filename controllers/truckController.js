@@ -31,8 +31,17 @@ class truckController {
         return response.status(400).json({message: 'Bad request'});
       }
 
+      const usersTrucks = await Truck.find({
+        created_by: request.user.id
+      },{
+        dimensions: 0,
+        payload: 0,
+        __v: 0
+      });
 
-      return response.status(200).json({message: 'Truck created successfully'});
+      console.log(usersTrucks)
+
+      return response.status(200).json({trucks: usersTrucks});
     }
     catch (e) {
       response.status(500).json({message: 'Internal server error'});
