@@ -8,8 +8,8 @@ module.exports = (request, response, next) => {
       return response.status(401).json({message: "User not authorized"});
     }
 
-    const decoded = jwt.verify(token, secret);
-    request.user = decoded;
+    const decoded = jwt.verify(token, secret); // gets user id
+    request.user = decoded; // = user id
     next();
   }
   catch (e) {

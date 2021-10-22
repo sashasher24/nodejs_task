@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 
 const authRouter = require('./routes/authRouter')
 const userRouter = require('./routes/userRouter')
+const truckRouter = require('./routes/truckRouter')
 
 dotenv.config();
 const app = express();
@@ -16,6 +17,7 @@ app.use(morgan('combined'));
 
 app.use('/api/auth', authRouter)
 app.use('/api/users', userRouter)
+app.use('/api/trucks', truckRouter)
 
 mongoose.connect('mongodb+srv://sasha:sasha@cluster0.msjsx.mongodb.net/practice?retryWrites=true&w=majority', {
   useNewUrlParser: true,

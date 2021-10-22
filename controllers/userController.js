@@ -2,8 +2,6 @@ const User = require('../models/User')
 
 const bcrypt = require('bcryptjs')
 const {validationResult} = require('express-validator')
-// const jwt = require('jsonwebtoken')
-// const {secret} = require('../config')
 
 
 class userController {
@@ -19,8 +17,7 @@ class userController {
           '_id': userProfile.id,
           'role': userProfile.role,
           'email': userProfile.email,
-          'created_date': userProfile.createdDate,
-          'password': userProfile.password
+          'created_date': userProfile.createdDate
         }
       })
     } catch (e) {
